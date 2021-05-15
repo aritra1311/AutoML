@@ -210,7 +210,7 @@ def app2(uploaded_file):
         col_list = list(new_data.columns)
         l=len(col_list)
         i=0
-        c = st.slider('Select How many times you want to drop columns', 1, l, 1)
+        c = st.slider('Select How many times you want to drop columns', 0, l, 1)
         while(c>0):
             c1=list(new_data.columns)
             l1 = st.selectbox("Select the column to be dropped", col_list, key=c)
