@@ -182,10 +182,9 @@ def build_model(df, model, split_size, seed_number, label):
     # FOR TESTING PURPOSE, COMMENT THIS OUT FOR PRODUCTION
     progress = 0
     if label != "":
-        dataTypeObj = df.dtypes[label]
-        Y = df[[label]]
+        Y = df[label]
         # Using all column except for the last column as X
-        X = df.drop([label], axis=1)
+        X = df.loc[:, df.columns != label]
         progress = 1
 
     if progress == 1:
