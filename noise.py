@@ -206,7 +206,7 @@ def app2(uploaded_file):
                         st.write(new_data)
                         st.markdown(filedownload(
                             noise_free_data, "Noise_reduced_dataset"), unsafe_allow_html=True)
-       if st.button("Custom Removing Columns"):
+        if st.button("Custom Removing Columns"):
             col_list = list(new_data.columns)
             l=len(col_list)
             i=0
