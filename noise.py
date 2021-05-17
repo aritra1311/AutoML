@@ -206,23 +206,23 @@ def app2(uploaded_file):
                         st.write(new_data)
                         st.markdown(filedownload(
                             noise_free_data, "Noise_reduced_dataset"), unsafe_allow_html=True)
-        if st.button("Custom Removing Columns"):
-            col_list = list(new_data.columns)
-            l=len(col_list)
-            i=0
+        st.markdown("Custom Removing Columns")
+        col_list = list(new_data.columns)
+        l=len(col_list)
+        i=0
 
-            c = st.slider('Select How many times you want to drop columns', 1, l, 1)
-            while(c>0):
-                c1=list(new_data.columns)
-                l1 = st.selectbox("Select the column to be dropped", col_list, key=c)
-                c=c-1
-                if(l1 not in c1):
-                    st.write("Column already dropped")
-                else:
-                    new_data=new_data.drop(l1, axis=1)
-                    st.write(new_data)
-                    st.markdown(filedownload(new_data, "New_corrected_dataset"),
-                      unsafe_allow_html=True)
+        c = st.slider('Select How many times you want to drop columns', 0, l, 0)
+        while(c>0):
+            c1=list(new_data.columns)
+            l1 = st.selectbox("Select the column to be dropped", col_list, key=c)
+            c=c-1
+            if(l1 not in c1):
+                st.write("Column already dropped")
+            else:
+                new_data=new_data.drop(l1, axis=1)
+                st.write(new_data)
+                st.markdown(filedownload(new_data, "New_corrected_dataset"),
+                  unsafe_allow_html=True)
     return new_data
         #st.header("Please Upload the new dataset again generated for next stages")
 
